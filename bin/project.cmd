@@ -16,43 +16,6 @@ exit /B %errorlevel%
 ::!#
 // #Sireum
 
-// Example Sireum Proyek build definitions -- the contents of this file will not be overwritten
-//
-// To install Sireum (Proyek and IVE) see https://github.com/sireum/kekinian#installing
-//
-// The following commands should be executed in the parent of the 'bin' directory.
-//
-// Command Line:
-//   To run the demo from the command line using the default scheduler:
-//     sireum proyek run . isolette__JVM.Demo
-//
-//   To see the available CLI options:
-//     sireum proyek run . isolette__JVM.Demo -h
-//
-//   To run the example unit tests from the command line:
-//     sireum proyek test .
-//
-//   To build an executable jar:
-//     sireum proyek assemble --uber --main isolette__JVM.Demo .
-//
-// Sireum IVE:
-//
-//   If you did not have HAMR run Proyek IVE then first generate the IVE project:
-//     sireum proyek ive .
-//
-//   Then in IVE select 'File > Open ...' and navigate to the parent of the
-//   'bin' directory and click 'OK'.
-//
-//   To run the demo from within Sireum IVE:
-//     Right click src/main/architecture/isolette__JVM/Demo.scala and choose "Run 'Demo'"
-//
-//   To run the unit test cases from within Sireum IVE:
-//     Right click the src/test/bridge and choose "Run ScalaTests in bridge"
-//
-//   NOTE: A ClassNotFoundException may be raised the first time you try to
-//         run the demo or unit tests.  If this occurs simply delete the directory
-//         named 'target' and retry
-
 import org.sireum._
 import org.sireum.project.{JSON, Module, Project, ProjectUtil, Target}
 
@@ -84,9 +47,6 @@ val jvmLibrary: ISZ[String] = ISZ(macroShared, runtime)
 
 val sharedTarget: ISZ[Target.Type] = Module.allTargets
 val sharedLibrary: ISZ[String] = ISZ(macroShared, runtimeShared)
-
-
-val targetingScalaJS = T//F || Os.envs.contains("TARGETING_JS")
 
 def module(id: String,
            baseDir: Os.Path,
