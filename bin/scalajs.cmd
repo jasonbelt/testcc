@@ -42,11 +42,13 @@ def download(url: String): Os.Path = {
   return dest
 }
 
+val ver = "20211201.1220.e2d0127"
+
 //val runtimes = download("https://jitpack.io/com/github/sireum/kekinian/library-shared_sjs1_2.13/4.20211103.09b1e32/library-shared_sjs1_2.13-4.20211103.09b1e32.jar")
-val runtimejs = Os.home / ".m2/repository/org/sireum/kekinian/library-shared_sjs1_2.13/20211129.1337.bbe6019/library-shared_sjs1_2.13-20211129.1337.bbe6019.jar"
+val runtimejs = Os.home / s".m2/repository/org/sireum/kekinian/library-shared_sjs1_2.13/${ver}/library-shared_sjs1_2.13-${ver}.jar"
 
 //val macrosjs = download("https://jitpack.io/com/github/sireum/kekinian/macros_sjs1_2.13/4.20211103.09b1e32/macros_sjs1_2.13-4.20211103.09b1e32.jar")
-val macrosjs = Os.home / ".m2/repository/org/sireum/kekinian/macros_sjs1_2.13/20211129.1337.bbe6019/macros_sjs1_2.13-20211129.1337.bbe6019.jar"
+val macrosjs = Os.home / s".m2/repository/org/sireum/kekinian/macros_sjs1_2.13/${ver}/macros_sjs1_2.13-${ver}.jar"
 
 val scalajslib = download("https://oss.sonatype.org/content/repositories/releases/org/scala-js/scalajs-library_2.13/1.7.1/scalajs-library_2.13-1.7.1.jar")
 

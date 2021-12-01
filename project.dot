@@ -1,0 +1,6 @@
+digraph G {
+  rankdir="BT"
+
+  n0 [shape = "rect", label="demoJS"]
+
+}
