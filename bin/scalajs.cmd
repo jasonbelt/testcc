@@ -52,6 +52,9 @@ val macrosjs = Os.home / s".m2/repository/org/sireum/kekinian/macros_sjs1_2.13/$
 
 val scalajslib = download("https://oss.sonatype.org/content/repositories/releases/org/scala-js/scalajs-library_2.13/1.7.1/scalajs-library_2.13-1.7.1.jar")
 
+
+val scalajsdom = download("https://repo1.maven.org/maven2/org/scala-js/scalajs-dom_sjs1_2.13/1.2.0/scalajs-dom_sjs1_2.13-1.2.0.jar")
+
 for(p <- ISZ(runtimejs, macrosjs, scalajslib) if !p.exists) {
   halt(s"${p} doesn't exist")
 }
@@ -88,7 +91,7 @@ for(m <- project.modules.values){
   }
 }
 
-val s = st"scala -classpath ${scalajsAssembly.value} org.scalajs.cli.Scalajsld --stdlib ${scalajslib.value} --mainMethod test.Test.main --outputDir ${jsOutputDir.value} ${macrosjs.value} ${runtimejs.value} ${(cps, " ")}"
+val s = st"scala -classpath ${scalajsAssembly.value} org.scalajs.cli.Scalajsld --stdlib ${scalajslib.value} --mainMethod test.Test.main --outputDir ${jsOutputDir.value} ${scalajsdom} ${macrosjs.value} ${runtimejs.value} ${(cps, " ")}"
 
 println("Running scalaJS linker")
 proc"${s.render}".at(home).env(envs).console.runCheck()

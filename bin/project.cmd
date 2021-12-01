@@ -78,7 +78,7 @@ val demoJS: Module = module(
   subPathOpt = None(),
   deps = ISZ(),
   targets = sharedTarget,
-  ivyDeps = sharedLibrary,
+  ivyDeps = sharedLibrary :+ "org.scala-js::scalajs-dom_sjs1:",
   sources = ISZ("main"),
   testSources = ISZ())
 

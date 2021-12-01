@@ -4,15 +4,16 @@ package test
 import org.sireum._
 
 object Test extends App {
-//object Test extends scala.App {
-
-  //App.args = ISZ(args.toIndexedSeq.map(String(_)): _*)
-  //main(App.args)
 
   def main(args: ISZ[String]): Z = {
-    println("Hello")
 
-    CCTest.dummy()
+    CCTest.init()
+
+    for(i <- 1 to 10) {
+      CCTest.addMessage(s"${i}")
+    }
+
+    CCTest.waitx()
 
     return 0
   }
